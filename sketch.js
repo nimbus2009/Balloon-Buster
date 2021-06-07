@@ -142,7 +142,18 @@ function arrowHit(group) {
   if(arrowGroup.collide(group)) {
     arrowGroup.setVelocityEach(-4,0)
     group.destroyEach();
-    score+=3;
+    switch(group) {
+      case "redGroup" : score+=1;
+        break;
+      case "blueGroup" : score+=2;
+        break;
+      case "greenGroup" : score+=3;
+        break;
+      case "pinkGroup" : score+=4;
+        break;
+      
+      default : score=score;
+    }
     arrowGroup.destroyEach();
   }
 }
