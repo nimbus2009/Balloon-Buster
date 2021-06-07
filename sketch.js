@@ -142,8 +142,10 @@ function arrowHit(group) {
   if(arrowGroup.collide(group)) {
     arrowGroup.setVelocityEach(-4,0)
     group.destroyEach();
+    console.log(group);
     switch(group) {
       case "redGroup" : score+=1;
+                        console.log(group);
         break;
       case "blueGroup" : score+=2;
         break;
@@ -154,6 +156,7 @@ function arrowHit(group) {
       
       default : score=score;
     }
+    console.log(group);
     arrowGroup.destroyEach();
   }
 }
