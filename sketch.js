@@ -60,10 +60,10 @@ function draw() {
   
   // Collision of arrow and balloon, ballon explodes
 
-  arrowHit(blueGroup);
-  arrowHit(redGroup);
-  arrowHit(greenGroup);
-  arrowHit(pinkGroup);
+  arrowHit(blueGroup,1);
+  arrowHit(redGroup,4);
+  arrowHit(greenGroup,2);
+  arrowHit(pinkGroup,3);
 
   //creating continous balloons
   var select_balloon = Math.round(random(1,4));
@@ -138,25 +138,11 @@ function pinkBalloon() {
   pinkGroup.add(pink);
 }
 
-function arrowHit(group) {
+function arrowHit(group,points) {
   if(arrowGroup.collide(group)) {
     arrowGroup.setVelocityEach(-4,0)
     group.destroyEach();
-    console.log(group);
-    switch(group) {
-      case "redGroup" : score+=1;
-                        console.log(group);
-        break;
-      case "blueGroup" : score+=2;
-        break;
-      case "greenGroup" : score+=3;
-        break;
-      case "pinkGroup" : score+=4;
-        break;
-      
-      default : score=score;
-    }
-    console.log(group);
+    score=score+points;
     arrowGroup.destroyEach();
   }
 }
