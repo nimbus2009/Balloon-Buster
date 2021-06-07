@@ -142,7 +142,9 @@ function arrowHit(group,points) {
   if(arrowGroup.collide(group)) {
     arrowGroup.setVelocityEach(-4,0)
     group.destroyEach();
+    console.log(points);
     score=score+points;
     arrowGroup.destroyEach();
   }
+  console.log(score);
 }
